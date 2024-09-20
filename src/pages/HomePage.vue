@@ -1,5 +1,5 @@
 <template>
-	<AppContainer>
+	<div>
 		<AppHeader />
-	</AppContainer>
+	</div>
 </template>

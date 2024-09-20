@@ -6,6 +6,8 @@
 
 <style lang="scss" scoped>
 .container {
-	background-color: gray;
+	max-width: 100rem;
+	margin: 0 auto;
+	padding-inline: 1rem;
 }
 </style>
