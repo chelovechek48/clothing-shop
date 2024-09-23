@@ -50,6 +50,9 @@ import svgBundle from '@icons/sprite-header.svg';
 	$title-line-height: 1.25;
 	$padding-block: clamp(0.75rem, 2vw, 1.5rem);
 
+	background-color: colors.$white;
+	padding-block: $padding-block;
+
 	position: sticky;
 	@media (min-width: calc($tablet-portrait + 1px)) {
 		top: 0;
@@ -57,9 +60,6 @@ import svgBundle from '@icons/sprite-header.svg';
 	@media (max-width: $tablet-portrait) {
 		top: calc(0px - ($title-font-size * $title-line-height + $padding-block));
 	}
-
-	background-color: colors.$white;
-	padding-block: $padding-block;
 
 	&__container {
 		display: flex;
