@@ -32,6 +32,7 @@ export default defineNuxtConfig({
 		'@pages': getPath('./src/pages'),
 		'@styles': getPath('./src/styles'),
 		'@vars': getPath('./src/styles/vars'),
+		'@images': getPath('./src/assets/images'),
 		'@icons': getPath('./src/assets/icons'),
 	},
 });
