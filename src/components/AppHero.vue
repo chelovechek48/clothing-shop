@@ -28,10 +28,28 @@
 					</li>
 				</ul>
 			</div>
-			<img
-				src="" alt=""
-				class="hero__image"
-			>
+			<picture>
+				<source
+					type="image/webp"
+					srcset="
+						@images/hero@1x.webp 1x,
+						@images/hero@2x.webp 2x
+					"
+				>
+				<source
+					type="image/jpeg"
+					srcset="
+						@images/hero@1x.jpg 1x,
+						@images/hero@2x.jpg 2x
+					"
+				>
+				<img
+					class="hero__image"
+					src="@images/hero@1x.jpg"
+					alt="Парень и девушка, одетые в белую рубашку с капюшоном и чёрную джинсовую куртку"
+					loading="lazy"
+				>
+			</picture>
 		</AppContainer>
 	</section>
 </template>
