@@ -1,4 +1,20 @@
 <script setup lang="ts">
+const features = [
+	{
+		count: 200,
+		label: 'International Brands',
+	},
+	{
+		count: 2000,
+		label: 'High-Quality Products',
+	},
+	{
+		count: 30000,
+		label: 'Happy Customers',
+	},
+];
+
+const formatNumber = (num: number) => new Intl.NumberFormat('en-US').format(num);
 </script>
 
 <template>
@@ -18,12 +34,15 @@
 					Shop Now
 				</NuxtLink>
 				<ul class="hero__features">
-					<li class="hero__features-item">
+					<li
+						v-for="item in features" :key="item.label"
+						class="hero__features-item"
+					>
 						<span class="hero__features-count">
-							200+
+							{{ formatNumber(item.count) }}
 						</span>
 						<span class="hero__features-label">
-							International Brands
+							{{ item.label }}
 						</span>
 					</li>
 				</ul>
@@ -56,9 +75,83 @@
 
 <style lang="scss" scoped>
 @use '@vars/colors';
+@use '@vars/mixins';
 
 .hero {
 	background-color: colors.$gray;
-	height: 3000px;
+
+	&__container {
+		display: flex;
+		align-items: flex-end;
+	}
+
+	&__text {
+		padding-block: 6rem;
+
+		display: flex;
+		flex-direction: column;
+		align-items: start;
+		gap: 2rem;
+	}
+
+	&__title {
+		@include mixins.title(4rem);
+	}
+
+	&__paragraph {
+		color: colors.$black-60;
+		font-size: 1.125rem;
+		font-weight: 500;
+	}
+
+	&__button {
+		color: colors.$white;
+		font-size: 1.125rem;
+		font-weight: 500;
+
+		background-color: colors.$black;
+		padding: 1rem 3rem;
+		border-radius: 5rem;
+	}
+
+	&__features {
+		$list-gap: 3rem;
+		$separator-width: 2px;
+
+		display: flex;
+		gap: $list-gap;
+
+		&-item {
+			display: flex;
+			flex-direction: column;
+
+			position: relative;
+			&:not(:last-child)::after {
+				content: '';
+				position: absolute;
+				top: 0;
+				right: calc(($list-gap + $separator-width) / -2);
+				width: $separator-width;
+				height: 100%;
+				background-color: rgba(#000, 0.1);
+			}
+		}
+
+		&-count {
+			color: colors.$black;
+			font-size: 2.5rem;
+			font-weight: 600;
+
+			&::after {
+				content: '+';
+			}
+		}
+
+		&-label {
+			color: colors.$black-60;
+			font-size: 1rem;
+			font-weight: 500;
+		}
+	}
 }
 </style>
